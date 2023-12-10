@@ -38,6 +38,7 @@ const Welcome = () => {
 
       <View style={styles.tabsContainer}>
         <FlatList
+          showsHorizontalScrollIndicator={false}
           data={jobTypes}
           renderItem={({ item }) => (
             <TouchableOpacity
