@@ -6,7 +6,6 @@ import styles from './popularjobs.style'
 import { COLORS, SIZES } from '../../../constants'
 import PopularJobCard from '../../common/cards/popular/PopularJobCard'
 import { FlatList } from 'react-native'
-import { FlatListComponent } from 'react-native'
 
 import useFetch from '../../../hook/useFetch';
 
@@ -15,7 +14,12 @@ const Popularjobs = () => {
   const {data, isLoading, error} = useFetch('search', {
     query: "Jobs in India",
     num_pages: "1"
-  })
+  });
+
+  const [selectedJob, setSelectedJob] = useState();
+  const handleCardPress = () => {
+
+  }
   
   // console.log(data);
   return (
@@ -41,7 +45,9 @@ const Popularjobs = () => {
             horizontal
             data={data}
             renderItem={({item}) => (
-              <PopularJobCard item={item}/>
+              <PopularJobCard item={item}
+                              selectedJob={selectedJob}
+                              handleCardPress={handleCardPress} />
             )}
             keyExtractor={item => item?.job_id}
             contentContainerStyle={{columnGap: SIZES.medium}}
