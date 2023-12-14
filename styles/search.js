@@ -7,13 +7,11 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     searchTitle: {
-        fontFamily: FONT.bold,
         fontSize: SIZES.xLarge,
         color: COLORS.primary,
     },
     noOfSearchedJobs: {
         marginTop: 2,
-        fontFamily: FONT.medium,
         fontSize: SIZES.small,
         color: COLORS.primary,
     },
@@ -49,7 +47,6 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.white
     },
     paginationText: {
-        fontFamily: FONT.bold,
         fontSize: SIZES.medium,
         color: COLORS.primary
     }

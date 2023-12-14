@@ -5,6 +5,7 @@ import {COLORS, icons, images, SIZES} from '../constants';
 import { Popularjobs, Welcome, ScreenHeaderBtn } from "../screens";
 
 const LazyNearbyJobs = lazy(() => import('../screens/home/nearby/Nearbyjobs'));
+const LazyPopularJobs = lazy(() => import('../screens/home/popular/Popularjobs'));
 
 const Home = () => {
     const router = useRouter();
@@ -34,8 +35,8 @@ const Home = () => {
                         }}
                     >
                         <Welcome />
-                        <Popularjobs />
                         <Suspense fallback={<ActivityIndicator />}>
+                            <LazyPopularJobs />
                             <LazyNearbyJobs />
                         </Suspense>
                     </View>
