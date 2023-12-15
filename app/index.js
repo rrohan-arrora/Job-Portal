@@ -44,8 +44,8 @@ const Home = () => {
                             }}
                         />
                         <Suspense fallback={<ActivityIndicator />}>
-                            {/* <LazyPopularJobs />
-                            <LazyNearbyJobs /> */}
+                            <LazyPopularJobs />
+                            <LazyNearbyJobs />
                         </Suspense>
                     </View>
             </ScrollView>
