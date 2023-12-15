@@ -9,19 +9,19 @@ const LazyPopularJobs = lazy(() => import('../screens/home/popular/Popularjobs')
 
 const Home = () => {
     const router = useRouter();
-    
+    const [search, setSearch] = useState("");
     return (
         <SafeAreaView  style={{flex: 1, backgroundColor: COLORS.lightWhite}}>
             <Stack.Screen
                 options={{
                     headerStyle: {backgroundColor: COLORS.lightWhite},
                     headerShadowVisible: false,
-                    headerLeft: () => (
-                        <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
-                    ),
-                    headerRight: () => (
-                        <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
-                    ),
+                    // headerLeft: () => (
+                    //     <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
+                    // ),
+                    // headerRight: () => (
+                    //     <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
+                    // ),
                     headerTitle: ""
                 }}
             />
@@ -34,10 +34,18 @@ const Home = () => {
                             padding: SIZES.medium
                         }}
                     >
-                        <Welcome />
+                        <Welcome
+                            searchTerm={search}
+                            setSearchTerm={setSearch}
+                            handleClick={() => {
+                                if(search){
+                                    router.push(`/search/${search}`)
+                                }
+                            }}
+                        />
                         <Suspense fallback={<ActivityIndicator />}>
-                            <LazyPopularJobs />
-                            <LazyNearbyJobs />
+                            {/* <LazyPopularJobs />
+                            <LazyNearbyJobs /> */}
                         </Suspense>
                     </View>
             </ScrollView>
